@@ -9,14 +9,6 @@ To run the code, you will need the Pandas package installed.
 
 To reproduce the figures in the publication, follow these steps:
 
-1. Create a `results` directory
+  bash bin/run_analysis.sh
 
-2. Use `countwords.py` to count the words in `frankenstein.txt`.
-
-      python bin/countwords.py data/frankenstein.txt -n 100 > results/frankenstein.csv
-
-3. Use `plotcounts.py` to plot the resulting file.
-
-      python bin/plotcounts.py results/frankenstein.csv results/frankenstein.pdf --xlim 1000 3000
-
-4. Repeat the above instructions to generate `dracula.csv` and plot `dracula.pdf`.
+Results will be placed in a `results/` directory.
