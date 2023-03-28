@@ -4,7 +4,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 
-df = pd.read_csv('results/frankenstein.csv', header=None,
+df = pd.read_csv('results/dracula.csv', header=None,
                  names=('word', 'word_frequency'))
 df['rank'] = df['word_frequency'].rank(ascending=False,
                                        method='max')
@@ -14,4 +14,5 @@ ax = df.plot.scatter(x='word_frequency',
                      figsize=[12, 6],
                      grid=True,
                      xlim=None)
-plt.show()
+#plt.show()
+plt.savefig('results/dracula.pdf')
