@@ -18,19 +18,24 @@ def count_words(reader):
     word_counts = Counter(word_list)
     return word_counts
 
-parser = argparse.ArgumentParser(description=(
-    "Count the occurrences of all words in a text "
-    "and write them to a CSV-file."
-))
-parser.add_argument('infile', type=argparse.FileType('r'),
-                    nargs='?', default='-',
-                    help='Input file name')
-parser.add_argument('-n', '--num',
-                    type=int, default=None,
-                    help='Output only n most frequent words')
-args = parser.parse_args()
+def main(args):
+  """Run the command line program."""
+  word_counts = count_words(args.infile)
+  util.collection_to_csv(word_counts, num=args.num)
 
-word_counts = count_words(args.infile)
+if __name__ == '__main__':
+  parser = argparse.ArgumentParser(description=(
+      "Count the occurrences of all words in a text "
+      "and write them to a CSV-file."
+  ))
+  parser.add_argument('infile', type=argparse.FileType('r'),
+                      nargs='?', default='-',
+                      help='Input file name')
+  parser.add_argument('-n', '--num',
+                      type=int, default=None,
+                      help='Output only n most frequent words')
+  args = parser.parse_args()
+  main(args)
+
 #with open('data/dracula.txt', 'r') as reader:
 #    word_counts = count_words(reader)
-util.collection_to_csv(word_counts, num=args.num)
