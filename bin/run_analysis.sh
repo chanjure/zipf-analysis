@@ -1,5 +1,6 @@
 mkdir data
 curl -L -o data/frankenstein.txt https://www.gutenberg.org/files/84/84-0.txt
+curl -L -o data/dracula.txt https://www.gutenberg.org/files/345/345-0.txt
 
 mkdir results
 for book in dracula frankenstein
